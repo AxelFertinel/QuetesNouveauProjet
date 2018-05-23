@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('build/style.css') }}">
+</head>
+<body>
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Accueil</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="{{ path('planemodel_index') }}">avions</a></li>
+                    <li><a href="{{ path('reservation_index') }}">reservations</a></li>
+                    <li><a href="{{ path('flight_index') }}">vols</a></li>
+                    <li><a href="{{ path('site_index') }}">terrains</a></li>
+                    <li><a href="{{ path('review_index') }}">review</a></li>
+                    <li><a href="{{ path('user_index') }}">user</a></li>
+                    <li><a href="/login">login</a></li>
+                    <li><a href="/register">register</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}
+{% block body %}{% endblock %}
+<script src="{{ asset('build/app.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>
