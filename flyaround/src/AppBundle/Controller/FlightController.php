@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\FlightInfo;
 
 /**
  * Flight controller.
@@ -72,7 +73,7 @@ class FlightController extends Controller
             $flight->getArrival()->getLatitude(),
             $flight->getArrival()->getLongitude()
         );
-
+        
         $deleteForm = $this->createDeleteForm($flight);
 
         return $this->render('flight/show.html.twig', array(
