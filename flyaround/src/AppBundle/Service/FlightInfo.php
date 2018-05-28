@@ -2,6 +2,7 @@
 
 namespace AppBundle\Service;
 
+
 class FlightInfo
 {
     /**
@@ -54,8 +55,12 @@ class FlightInfo
 
         return $d;
     }
-    public function getTime()
-    {
 
+
+    public function getTime($cruiseSpeed, $distance)
+    {
+        $time= $distance/$cruiseSpeed;
+
+        return $time;
     }
 }

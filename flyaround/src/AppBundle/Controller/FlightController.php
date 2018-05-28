@@ -73,13 +73,16 @@ class FlightController extends Controller
             $flight->getArrival()->getLatitude(),
             $flight->getArrival()->getLongitude()
         );
-        
+
+        $time = $flightInfo->getTime($flight->getPlane()->getCruiseSpeed(), $distance);
+
         $deleteForm = $this->createDeleteForm($flight);
 
         return $this->render('flight/show.html.twig', array(
             'flight' => $flight,
             'delete_form' => $deleteForm->createView(),
             'distance' => $distance,
+            'time'=> $time
         ));
     }
 
